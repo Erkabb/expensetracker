@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const { logger } = require("./middlewares/logger");
 const userRouter = require("./routes/user-router");
 const categoryRouter = require("./routes/categories");
+const recordRouter = require("./routes/records");
 
 dotenv.config();
 const PORT = process.env.PORT; 
@@ -14,6 +15,7 @@ app.use(logger());
 
 app.use("/users", userRouter);
 app.use("/categories", categoryRouter);
+app.use("/records", recordRouter);
 
 
 // app.get("/users", (req, res) => {
