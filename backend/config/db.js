@@ -2,7 +2,7 @@
 // const { Client } = require("pg");
 const postgres = require("postgres");
 require("dotenv").config();
-const { PGHOST, PGDATABASE,PGUSER, PGPASSWORD,  ENDPOINT_ID } = process.env;
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
 // const client = new Client({
 //     user: "expense_db_owner",
 //         passowrd: "cdfeMV3y5Fog",
@@ -23,16 +23,15 @@ const { PGHOST, PGDATABASE,PGUSER, PGPASSWORD,  ENDPOINT_ID } = process.env;
 // };
 
 const sql = postgres({
-    // host: ep-fancy-art-a5cnci4e.us-east-2.aws.neon.tech,
-    host: PGHOST,
-    database: PGDATABASE,
-    username: PGUSER,
-    password: PGPASSWORD,
-    port: 5432,
-    ssl: 'require',
-    connection: {
-      options: `project=${ENDPOINT_ID}`,
-    },
-})
+  host: PGHOST,
+  database: PGDATABASE,
+  username: PGUSER,
+  password: PGPASSWORD,
+  port: 5432,
+  ssl: "require",
+  connection: {
+    options: `project=${ENDPOINT_ID}`,
+  },
+});
 
 module.exports = sql;

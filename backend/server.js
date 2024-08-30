@@ -7,7 +7,7 @@ const categoryRouter = require("./routes/categories");
 const recordRouter = require("./routes/records");
 
 dotenv.config();
-const PORT = process.env.PORT; 
+const PORT = process.env.PORT;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -16,7 +16,6 @@ app.use(logger());
 app.use("/users", userRouter);
 app.use("/categories", categoryRouter);
 app.use("/records", recordRouter);
-
 
 // app.get("/users", (req, res) => {
 //     res.status(200).json({
@@ -40,5 +39,5 @@ app.use("/records", recordRouter);
 // });
 
 app.listen(PORT, () => {
-    console.log(`Server running at ${PORT}`)
-})
+  console.log(`Server running at ${PORT}`);
+});
