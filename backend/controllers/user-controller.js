@@ -20,7 +20,15 @@ ${profile_image});`;
   res.status(201).json({ message: "new user", user: data });
 };
 
-const updateUser = () => {};
+const updateUser = async (req, res) => {
+
+  const { email, password, profile_image } = req.body;
+  const data =await sql `insert into users(email, password, profile_image)values
+  (${email},
+    ${password},
+    ${profile_image});`;
+    res.status(201).json({ message: "update user", user: data });
+};
 
 const deleteUser = async (req, res) => {
   const { id } = req.params;

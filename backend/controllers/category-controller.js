@@ -16,7 +16,15 @@ const getAllcategory = async (req, res) => {
     res.status(201).json({ message: "new category", user: data });
   };
   
-  const updCategory = () => {};
+const updCategory = async (req, res) => {
+
+  const { email, description, password, category_img } = req.body;
+  const data =await sql `insert into users(email, description, password, category_img)values
+  (${email}, 
+    ${description}, 
+    ${password}, 
+    ${category_img});`;
+    res.status(201).json({ message: "update category", user: data });};
   
   const deleteCategory = async (req, res) => {
     const { id } = req.params;
