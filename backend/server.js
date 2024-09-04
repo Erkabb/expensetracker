@@ -17,7 +17,6 @@ app.use(logger());
 app.use("/auth", authRoutes);
 app.use("/users", userRouter);
 app.use("/categories", categoryRouter);
-app.use("/records", recordRouter);
 
 // app.get("/users", (req, res) => {
 //     res.status(200).json({

@@ -1,11 +1,6 @@
 "use client";
-import Login from "./components/login";
+import Login from "./(auth)/login";
 
 export default function Home() {
-  return (
-    <main>
-
-      <Login />
-    </main>
-  );
+  return <main></main>;
 }

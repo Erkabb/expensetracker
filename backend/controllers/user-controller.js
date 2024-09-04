@@ -1,5 +1,10 @@
-
 const sql = require("../config/db");
+
+const getCurrendUser = async (req, res) => {
+  const { id } = req.user;
+  const [data] = await sql`select * from users where id=${id}`;
+  res.status(200).json({ message: "success", user: data });
+};
 
 const getAllUser = async (req, res) => {
   const data = await sql`SELECT * FROM users`;
@@ -21,13 +26,11 @@ ${profile_image});`;
 };
 
 const updateUser = async (req, res) => {
-
-  const { email, password, profile_image } = req.body;
-  const data =await sql `insert into users(email, password, profile_image)values
-  (${email},
-    ${password},
-    ${profile_image});`;
-    res.status(201).json({ message: "update user", user: data });
+  const { name, email, password } = req.body;
+  const data =
+    await sql`UPDATE users SET name=${name}, email=${email}, password=${password}
+  WHERE id=${id}`;
+  res.status(201).json({ message: "update user" });
 };
 
 const deleteUser = async (req, res) => {

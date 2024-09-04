@@ -1,7 +1,9 @@
+const sql = require("../config/db");
+
 const getAllcategory = async (req, res) => {
   const data = await sql`SELECT * FROM categories`;
-  console.log("data", data);
-  res.status(200).json({ message: "success", user: data });
+
+  res.status(200).json({ message: "success", categories: data });
 };
 const createCategory = async (req, res) => {
   const { email, description, password, category_img } = req.body;
@@ -17,14 +19,10 @@ const createCategory = async (req, res) => {
 };
 
 const updCategory = async (req, res) => {
-  const { email, description, password, category_img } = req.body;
-  const data =
-    await sql`INSERT INTO users(email, description, password, category_img)VALUES
-  (${email}, 
-    ${description}, 
-    ${password}, 
-    ${category_img});`;
-  res.status(201).json({ message: "update category", user: data });
+  const { name } = req.body;
+  const data = await sql`UPDATE categories SET name=${name}
+  WHERE id=${id}`;
+  res.status(201).json({ message: "update categories" });
 };
 
 const deleteCategory = async (req, res) => {

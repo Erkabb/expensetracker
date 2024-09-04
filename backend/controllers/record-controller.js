@@ -1,4 +1,3 @@
-
 const sql = require("../config/db");
 
 const getAllRecord = async (req, res) => {
@@ -18,7 +17,13 @@ const createRecord = async (req, res) => {
   console.log("data", data);
   res.status(201).json({ message: "new records", user: data });
 };
-const updateRecord = () => {};
+const updateRecord = async (req, res) => {
+  const { name, amount, transaction_type } = req.body;
+  const data =
+    await sql`UPDATE records SET name=${name}, amount=${amount}, transaction_type=${transaction_type}
+  WHERE id=${id}`;
+  res.status(201).json({ message: "update records" });
+};
 const deleteRecord = async (req, res) => {
   const { id } = req.params;
   const data = await sql`DELETE FROM records WHERE id=${id}`;
