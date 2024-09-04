@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const { logger } = require("./middlewares/logger");
 const userRouter = require("./routes/user-router");
 const categoryRouter = require("./routes/categories");
-const recordRouter = require("./routes/record-routes");
+
 const authRoutes = require("./routes/auth-route");
 
 dotenv.config();

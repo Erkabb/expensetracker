@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const {
+  getCurrentUser,
   getAllUser,
   createUser,
   updateUser,
@@ -8,7 +9,7 @@ const {
 const { auth } = require("../middlewares/auth");
 const router = Router();
 
-router.route("/profile").get(auth, getCurrenUser);
+router.route("/profile").get(auth, getCurrentUser);
 router.route("/").get(getAllUser).post(createUser);
 router.route("/:id").put(updateUser).delete(deleteUser);
 

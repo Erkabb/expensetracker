@@ -3,17 +3,21 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
-  const { email, name, password } = req.body;
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  const data =
-    await sql`INSERT INTO users(email, name , password, profile_image) 
-VALUES
-(${email}, 
-${name}, 
-${hashedPassword}, 
-'url');`;
-  console.log("data", data);
-  res.status(201).json({ message: "new user registered" });
+  try {
+    const { email, name, password } = req.body;
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    const data =
+      await sql`INSERT INTO users(email, name , password, profile_image)
+  VALUES
+  (${email},
+  ${name},
+  ${hashedPassword},
+  'url');`;
+    console.log("data", data);
+    res.status(201).json({ message: "new user registered" });
+  } catch (error) {
+    res.status(400).json({ message: "error" });
+  }
 };
 
 const signin = async (req, res) => {
