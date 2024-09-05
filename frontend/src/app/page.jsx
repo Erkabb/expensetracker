@@ -1,3 +1,11 @@
+import Login from "./(auth)/login/page";
+
+
+
+
+
 export default function Home() {
-  return <main></main>;
+  return <main>
+<Login/>
+  </main>;
 }

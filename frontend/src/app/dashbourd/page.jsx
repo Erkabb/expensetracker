@@ -20,6 +20,21 @@ const Dashboard = () => {
       fetchTransactions();
     }
   }, [user.id]);
-  return <div></div>;
+  return (<div>
+    <div>
+      <h2>Records</h2>
+      {transactionData?.transactions?.map((transaction, index) => {
+        return (
+          <div key={index} className="flex">
+            <img src="/img" alt="income" />
+            <div>
+              <p className="mb-1">{transaction?.name}</p>
+              <p className="text-[#6B7280]">{transaction?.createdat}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>);
 };
 export default Dashboard;

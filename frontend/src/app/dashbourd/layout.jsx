@@ -10,4 +10,16 @@ const Layout = ({ children }) => {
   useEffect(() => {
     fetchUserData();
   }, []);
+  const logOut = () => {
+		localStorage.removeItem("token");
+		router.push("/login");
+	};
+
+	return (
+		<div>
+			<Header user={user} logOut={logOut} />
+			{children}
+		</div>
+	);
 };
+export default Layout;

@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { apiUrl } from "../utils/utils";
+import { apiUrl } from "../../utils/utils";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   //   const [name, setName] = useState();
