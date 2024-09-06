@@ -1,6 +1,10 @@
+"use client";
+
 const { useContext, useState, useEffect } = require("react");
 const { UserContext } = require("../context/user-context");
-const { default: axios } = require("axios");
+const { axios } = require("axios");
+import { GoDotFill } from "react-icons/go";
+import { FaArrowAltCircleUp } from "react-icons/fa";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
@@ -20,21 +24,43 @@ const Dashboard = () => {
       fetchTransactions();
     }
   }, [user.id]);
-  return (<div>
+  return (
     <div>
-      <h2>Records</h2>
-      {transactionData?.transactions?.map((transaction, index) => {
-        return (
-          <div key={index} className="flex">
-            <img src="/img" alt="income" />
-            <div>
-              <p className="mb-1">{transaction?.name}</p>
-              <p className="text-[#6B7280]">{transaction?.createdat}</p>
-            </div>
+      <div>
+        <div className="w-[384px] h-[220px] bg-blue-600">
+          <div>
+            <img src="./Vector.png" alt="" />
+            Geld
           </div>
-        );
-      })}
+          <div>
+            <div>
+              {" "}
+              <p>Cash</p>
+              <p>10,000.00</p>
+            </div>
+            <img src="./Union.png" alt="" />
+          </div>
+        </div>
+        <div className="w-[384px] h-[220px]">
+          <div>
+            <GoDotFill />
+            Your income
+          </div>
+          <div>
+            <p>
+              1,200,000 <img src="./utg.png" alt="" />
+            </p>
+
+            <p>Your Income Amount</p>
+          </div>
+          <div>
+            <FaArrowAltCircleUp />
+            32% from last month
+          </div>
+        </div>
+        <div className="w-[384px] h-[220px]"></div>
+      </div>
     </div>
-  </div>);
+  );
 };
 export default Dashboard;

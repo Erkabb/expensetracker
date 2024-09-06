@@ -5,13 +5,14 @@ import { useState } from "react";
 import { apiUrl } from "../../utils/utils";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 const Signup = () => {
   //   const [name, setName] = useState();
   //   const [email, setEmail] = useState();
   //   const [password, setPassword] = useState();
   //   const [repassword, SetRePassword] = useState();
-  const router = useRouter();
+
   const [userData, setUserData] = useState({
     name: "",
     email: "",
