@@ -1,6 +1,7 @@
 "use client";
 import { GoDotFill } from "react-icons/go";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import { apiUrl } from "../utils/utils";
 const { useContext, useState, useEffect } = require("react");
 const { UserContext } = require("../context/user-context");
 const { axios } = require("axios");
@@ -8,21 +9,33 @@ const { axios } = require("axios");
 const Dashboard = () => {
   const { user } = useContext(UserContext);
   const [transctionData, setTransactionData] = useState([]);
-
+  const [cardInfo, setCardInfo] = useState(null);
   const fetchTransactions = async () => {
     try {
-      const res = await axios.get(`${apiUrl}/records/${user.id}`);
-      setTransactionData(res.data);
+      const res = await axios.get(`${apiUrl}/records`);
+      console.log("dd:", res.data.data);
+      setTransactionData(res.data.data);
     } catch (error) {
       console.error(error);
       toast.error("Failed to fetch transactions");
     }
   };
-  useEffect(() => {
-    if (user && user.id) {
-      fetchTransactions();
+  const getInfoCardData = async () => {
+    try {
+      const res = await axios.get(`${apiUrl}/records/info`);
+      console.log("ST:", res.data);
+      setCardInfo(res.data.info);
+    } catch (error) {
+      console.error(error);
+      toast.error("FAILED");
     }
-  }, [user.id]);
+  }
+  useEffect(() => {
+   
+      fetchTransactions();
+    getInfoCardData();
+    
+  }, [user]);
   return (
     <div className="bg-slate-100 pt-10">
       <div className="flex justify-evenly">
@@ -47,7 +60,7 @@ const Dashboard = () => {
           </div>
           <div className="">
             <div className=" flex">
-              <p className="text-[36px]">1,200,000</p>
+              <p className="text-[36px]">{ cardInfo?.income?.sum}</p>
               <img src="./utg.png" alt="" />
             </div>
 
@@ -63,6 +76,7 @@ const Dashboard = () => {
             <GoDotFill />
             Total Expenses
           </div>
+          <p> <p className="text-[36px]">{ cardInfo?.expense?.sum}</p></p>
         </div>
       </div>
 
@@ -75,6 +89,7 @@ const Dashboard = () => {
       <div>
         <h1>Income-Expense</h1>
       </div>
+      {transctionData?.map((tr) => (<div>{ tr.name}</div>))}
     </div>
   );
 };

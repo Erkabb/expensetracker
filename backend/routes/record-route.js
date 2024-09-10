@@ -5,11 +5,12 @@ const {
   createRecord,
   updateRecord,
   deleteRecord,
+  recordInfo
 } = require("../controllers/record-controller");
-const { auth } = require("../middlewares/auth");
 const router = Router();
 
-router.route("/").get(auth, getAllRecord).post(auth, createRecord);
+router.route("/info").get(recordInfo);
+router.route("/").get( getAllRecord).post( createRecord);
 router.route("/:id").put(updateRecord).delete(deleteRecord);
 
 module.exports = router;
