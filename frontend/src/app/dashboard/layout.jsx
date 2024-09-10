@@ -1,8 +1,8 @@
 "use client";
 
-import Dashboard from "./page";
+import { Header } from "../components/home/page";
 
-const { useRouter } = require("next/router");
+const { useRouter } = require("next/navigation");
 const { UserContext } = require("../context/user-context");
 const { useContext, useEffect } = require("react");
 
@@ -21,7 +21,6 @@ const Layout = ({ children }) => {
     <div>
       <Header user={user} logOut={logOut} />
       {children}
-      <Dashboard />
     </div>
   );
 };

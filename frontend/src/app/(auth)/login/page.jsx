@@ -6,7 +6,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { apiUrl } from "../../utils/utils";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 
 const Login = () => {
   const router = useRouter();
