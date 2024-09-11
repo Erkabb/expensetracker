@@ -35,7 +35,6 @@ const DoughnutChart = () => {
               position: "right",
 
               labels: {
-                display: "true",
                 position: "right",
               },
             },
