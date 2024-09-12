@@ -13,7 +13,7 @@ const DoughnutChart = () => {
   //     },
   //   };
   return (
-    <div className="w-[156px] h-[156px]">
+    <div className=" h-[200px] w-[200px]  flex ">
       <Doughnut
         data={{
           datasets: [
@@ -33,10 +33,12 @@ const DoughnutChart = () => {
           plugins: {
             legend: {
               position: "right",
-
-              labels: {
-                position: "right",
-              },
+              boxWidth: 20,
+              boxHeight: 20,
+              borderRadius: 10,
+            },
+            colors: {
+              forceOverride: true,
             },
           },
         }}

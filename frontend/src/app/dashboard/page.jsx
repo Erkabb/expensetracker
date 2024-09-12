@@ -7,6 +7,18 @@ import { UserContext } from "../context/user-context";
 import axios from "axios";
 import BarChart from "../components/dashboard/BarChart";
 import DoughnutChart from "../components/dashboard/Doughnut";
+import { FaHome } from "react-icons/fa";
+
+import {
+  ArcElement,
+  BarElement,
+  CategoryScale,
+  Chart,
+  LinearScale,
+  Legend,
+} from "chart.js";
+
+Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Legend);
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
@@ -94,7 +106,7 @@ const Dashboard = () => {
           </div>
           <BarChart />
         </div>
-        <div className="w-[560px] h-[250px] bg-white rounded-lg flex flex-col gap-5 px-5">
+        <div className="w-[560px] h-[250px] bg-white rounded-lg flex flex-col  px-5">
           <div className="border-b-2 border-slate-100 h-[56px] flex items-center">
             <h1>
               <strong>Income-Expense</strong>
@@ -103,13 +115,17 @@ const Dashboard = () => {
           <DoughnutChart />
         </div>
       </div>
-
-      {/* <div>
-        <h1>Income-Expense</h1>
-      </div> */}
-      {transctionData?.map((tr) => (
-        <div>{tr.name}</div>
-      ))}
+      <div className="bg-white w-[1610px] h-auto m-auto rounded-lg px-10">
+        <h1 className="border-b-2 border-slate-100 h-[56px] flex items-center">
+          <strong>Last Records</strong>
+        </h1>
+        {transctionData?.map((tr) => (
+          <div className="h-[80px] border-b-2 border-slate-100 flex items-center gap-5">
+            <FaHome size={40} className="arrowdown " />
+            {tr.name}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
