@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <Header user={user} logOut={logOut} />
+      <p>hi</p>
       {children}
     </div>
   );
