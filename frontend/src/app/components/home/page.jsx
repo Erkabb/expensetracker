@@ -4,7 +4,7 @@ import { GoPlus } from "react-icons/go";
 
 import Link from "next/link";
 
-export const Header = ({ user, logOut }) => {
+const Header = ({ user, logOut }) => {
   return (
     <header className="flex items-center max-w-[1200px] mx-auto justify-between py-4">
       <div className="flex gap-6 items-center">
@@ -33,3 +33,4 @@ export const Header = ({ user, logOut }) => {
     </header>
   );
 };
+export default Header;
