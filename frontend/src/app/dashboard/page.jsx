@@ -1,12 +1,12 @@
 "use client";
 import { GoDotFill } from "react-icons/go";
 import { FaArrowAltCircleUp, FaArrowAltCircleDown } from "react-icons/fa";
-import { apiUrl } from "../../../utils/utils";
+import { apiUrl } from "../utils/utils";
 import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../../context/user-context";
+import { UserContext } from "../context/user-context";
 import axios from "axios";
-import BarChart from "../../../components/dashboard/BarChart";
-import DoughnutChart from "../../../components/dashboard/Doughnut";
+import BarChart from "../components/dashboard/BarChart";
+import DoughnutChart from "../components/dashboard/Doughnut";
 import { FaHome } from "react-icons/fa";
 
 import {
