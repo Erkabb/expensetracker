@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useEffect } from "react";
-import { Header } from "../components/home/page";
+
 import { UserContext } from "../context/user-context";
 import { useRouter } from "next/navigation";
 
