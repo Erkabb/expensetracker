@@ -22,7 +22,7 @@ Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Legend);
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
-  const [transctionData, setTransactionData] = useState([]);
+  const [transactionData, setTransactionData] = useState([]);
   const [cardInfo, setCardInfo] = useState(null);
 
   const fetchTransactions = async (req, res) => {
@@ -119,10 +119,14 @@ const Dashboard = () => {
         <h1 className="border-b-2 border-slate-100 h-[56px] flex items-center">
           <strong>Last Records</strong>
         </h1>
-        {transctionData?.map((tr) => (
-          <div className="h-[80px] border-b-2 border-slate-100 flex items-center gap-5">
-            <FaHome size={40} className="arrowdown " />
-            {tr.name}
+        {transactionData?.map((tr) => (
+          <div className="h-[80px]  border-b-2 border-slate-100 flex items-center justify-between gap-5">
+            <div className="flex items-center gap-2">
+              <FaHome size={40} className="arrowdown " />
+              <p>{tr.name}</p>
+              {/* <p>{tr.updated}</p> */}
+            </div>
+            <p className="text-green-400">{tr.amount}₮</p>
           </div>
         ))}
       </div>
