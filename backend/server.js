@@ -19,6 +19,10 @@ app.use("/auth", authRoutes);
 app.use("/users", userRouter);
 app.use("/categories", categoryRouter);
 
+app.get("/", (_, res) => {
+  res.send("Welcome Expense Tracker API");
+});
+
 // app.get("/users", (req, res) => {
 //     res.status(200).json({
 //         message: "succesfull"
