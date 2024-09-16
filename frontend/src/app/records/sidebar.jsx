@@ -58,19 +58,31 @@ const Sidebar = () => {
 };
 export const Addrecordbtn = () => {
   const [addRecord, setAddRecord] = useState(false);
-  const closebtn = () => {
+  const handleClose = () => {
     setAddRecord(false);
   };
   return (
-    <div>
+  //   <>
+  
+  //   <button
+  //     className="btn bg-[#0166FF] text-white btn-sm"
+  //     onClick={() => setAddRecord(true)}
+  //   >
+    
+  //     Add
+  //   </button>
+   
+  //   <RecordModal isOpen={addRecord} closebtn={handleClose} />
+  // </>
+    <>
       <button
-        class="btn w-[250px] bg-[#0166FF] h-[40px] rounded-lg text-white"
-        onclick={() => setAddRecord(true)}
+        className="btn w-[250px] bg-[#0166FF] h-[40px] rounded-lg text-white"
+        onClick={()=>setAddRecord(true)}
       >
         <strong>Add records</strong>
       </button>
-      <RecordModal addRecord={addRecord} closebtn={closebtn} />
-    </div>
+      <RecordModal isOpen={addRecord} closebtn={handleClose} />
+    </>
   );
 };
 export default Sidebar;
