@@ -1,43 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import RecordModal from "./recordModal";
 
 const Sidebar = () => {
-  const [addRecord, setAddRecord] = useState(false);
-  const toggleRecord = () => {
-    setAddRecord(!addRecord);
-  };
   return (
     <div>
       <div className="flex flex-col justify-evenly gap-6 mx-3">
         <h1 className="text-[24px]">
           <strong>Records</strong>
         </h1>
-
-        <button
-          class="btn w-[250px] bg-[#0166FF] h-[40px] rounded-lg text-white"
-          onclick={() => {
-            return (
-              <dialog class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                  <div class="join grid grid-cols-2">
-                    <button class="join-item btn btn-outline">Income</button>
-                    <button class="join-item btn btn-outline">Expense</button>
-                  </div>
-                  <div class="modal-action">
-                    <form method="dialog">
-                      <button class="btn">Close</button>
-                    </form>
-                  </div>
-                </div>
-              </dialog>
-            );
-          }}
-        >
-          {" "}
-          <strong>Add records</strong>
-        </button>
-
+        <Addrecordbtn />
         <input
           type="text"
           placeholder="Search"
@@ -83,5 +56,21 @@ const Sidebar = () => {
     </div>
   );
 };
-
+export const Addrecordbtn = () => {
+  const [addRecord, setAddRecord] = useState(false);
+  const closebtn = () => {
+    setAddRecord(false);
+  };
+  return (
+    <div>
+      <button
+        class="btn w-[250px] bg-[#0166FF] h-[40px] rounded-lg text-white"
+        onclick={() => setAddRecord(true)}
+      >
+        <strong>Add records</strong>
+      </button>
+      <RecordModal addRecord={addRecord} closebtn={closebtn} />
+    </div>
+  );
+};
 export default Sidebar;
