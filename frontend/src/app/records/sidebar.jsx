@@ -1,8 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 const Sidebar = () => {
+  const [addRecord, setAddRecord] = useState(false);
+  const toggleRecord = () => {
+    setAddRecord(!addRecord);
+  };
   return (
     <div>
       <div className="flex flex-col justify-evenly gap-6 mx-3">
@@ -11,24 +15,28 @@ const Sidebar = () => {
         </h1>
 
         <button
-          class="btn-sm w-[250px] bg-[#0166FF] h-[40px] rounded-lg"
-          onclick="my_modal_5.showModal()"
+          class="btn w-[250px] bg-[#0166FF] h-[40px] rounded-lg text-white"
+          onclick={() => {
+            return (
+              <dialog class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                  <div class="join grid grid-cols-2">
+                    <button class="join-item btn btn-outline">Income</button>
+                    <button class="join-item btn btn-outline">Expense</button>
+                  </div>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            );
+          }}
         >
-          Add records
+          {" "}
+          <strong>Add records</strong>
         </button>
-        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-          <div class="modal-box">
-            <div class="join grid grid-cols-2">
-              <button class="join-item btn btn-outline">Income</button>
-              <button class="join-item btn btn-outline">Expense</button>
-            </div>
-            <div class="modal-action">
-              <form method="dialog">
-                <button class="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
 
         <input
           type="text"

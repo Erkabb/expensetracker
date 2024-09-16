@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 
 import { UserContext } from "../context/user-context";
 import { useRouter } from "next/navigation";
+import Header from "../components/header";
 
 const Layout = ({ children }) => {
   const { user, fetchUserData } = useContext(UserContext);
@@ -17,7 +18,8 @@ const Layout = ({ children }) => {
   };
   return (
     <div>
-      <p>hj</p>
+      <Header />
+      {children}
     </div>
   );
 };

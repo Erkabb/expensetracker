@@ -1,5 +1,7 @@
 "use client";
 
+import Header from "../components/header";
+
 const { useRouter } = require("next/navigation");
 const { UserContext } = require("../context/user-context");
 const { useContext, useEffect } = require("react");
@@ -17,7 +19,8 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <p>hi</p>
+      <Header />
+
       {children}
     </div>
   );

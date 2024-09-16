@@ -19,7 +19,7 @@ const Header = ({ user, logOut }) => {
       <div className="flex gap-6 items-center">
         <button className="btn bg-[#0166FF] text-white btn-sm">
           <GoPlus />
-          Records
+          Add records
         </button>
         <div className="avatar w-12 h-12">
           <div className="w-24 rounded-full">
