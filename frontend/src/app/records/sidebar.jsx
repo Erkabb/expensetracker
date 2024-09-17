@@ -62,27 +62,27 @@ export const Addrecordbtn = () => {
     setAddRecord(false);
   };
   return (
-  //   <>
-  
-  //   <button
-  //     className="btn bg-[#0166FF] text-white btn-sm"
-  //     onClick={() => setAddRecord(true)}
-  //   >
-    
-  //     Add
-  //   </button>
-   
-  //   <RecordModal isOpen={addRecord} closebtn={handleClose} />
-  // </>
-    <>
+    //   <>
+
+    //   <button
+    //     className="btn bg-[#0166FF] text-white btn-sm"
+    //     onClick={() => setAddRecord(true)}
+    //   >
+
+    //     Add
+    //   </button>
+
+    //   <RecordModal isOpen={addRecord} closebtn={handleClose} />
+    // </>
+    <div className="">
       <button
         className="btn w-[250px] bg-[#0166FF] h-[40px] rounded-lg text-white"
-        onClick={()=>setAddRecord(true)}
+        onClick={() => setAddRecord(true)}
       >
         <strong>Add records</strong>
       </button>
       <RecordModal isOpen={addRecord} closebtn={handleClose} />
-    </>
+    </div>
   );
 };
 export default Sidebar;
