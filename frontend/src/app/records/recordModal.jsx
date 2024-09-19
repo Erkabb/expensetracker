@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { IoClose } from "react-icons/io5";
 
 const RecordModal = ({ isOpen, closebtn }) => {
   const [incomeTr, setIncomeTr] = useState(false);
@@ -12,7 +13,7 @@ const RecordModal = ({ isOpen, closebtn }) => {
   return (
     <div className="">
       <dialog open={isOpen} className="modal bg-green ">
-        <div className="modal-box flex w-[798px] h-[515px] ">
+        <div className="modal-box w-11/12 max-w-3xl flex h-[515px] gap-5">
           <div className="w-[350px] flex flex-col">
             <h1 className=" border-b-2 border-slate-200 py-3">
               <strong>Add record</strong>
@@ -33,10 +34,26 @@ const RecordModal = ({ isOpen, closebtn }) => {
               <IncomeTr isOpen={incomeTr} />
             </div>
           </div>
-          <div></div>
+
+          <div className="h-[500px] flex flex-col  justify-between py-16">
+            <p>Payee</p>
+            <input
+              type="text"
+              placeholder="Write here"
+              className="w-[348px] h-[50px] border-2 border-slate-200 rounded-md "
+            />
+            <p>Note</p>
+            <input
+              type="text"
+              placeholder="Write here"
+              className="w-[348px] h-[280px] border-2 border-slate-200 rounded-md "
+            />
+          </div>
           <div className="modal-action">
             <form method="dialog">
-              <button onClick={closebtn}>Close</button>
+              <button onClick={closebtn}>
+                <IoClose />
+              </button>
             </form>
           </div>
         </div>
@@ -47,7 +64,10 @@ const RecordModal = ({ isOpen, closebtn }) => {
 export const IncomeTr = ({ isOpen, closebtn, add }) => {
   return (
     <div className="flex">
-      <dialog open={isOpen} className="w-[350px] h-[340px] flex mt-20 ml-6">
+      <dialog
+        open={isOpen}
+        className="w-[350px] h-[340px] flex mt-20 ml-6 gap-10"
+      >
         <div className=" flex flex-col gap-3  ">
           Amount
           <input
@@ -92,7 +112,6 @@ export const IncomeTr = ({ isOpen, closebtn, add }) => {
             Add record
           </button>
         </div>
-        <div></div>
       </dialog>
     </div>
   );
