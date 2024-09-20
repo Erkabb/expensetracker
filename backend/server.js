@@ -23,27 +23,6 @@ app.get("/", (_, res) => {
   res.send("Welcome Expense Tracker API");
 });
 
-// app.get("/users", (req, res) => {
-//     res.status(200).json({
-//         message: "succesfull"
-//     });
-// });
-// app.post("/users", (req, res) => {
-//     res.status(200).json({
-//         message: "succesfull"
-//     });
-// });
-// app.put("/users:id", (req, res) => {
-//     res.status(200).json({
-//         message: "succesfull"
-//     });
-// });
-// app.delete("/users:id", (req, res) => {
-//     res.status(200).json({
-//         message: "succesfull"
-//     });
-// });
-
 app.listen(PORT, () => {
   console.log(`Server running at ${PORT}`);
 });
